@@ -1,0 +1,406 @@
+[23:42:18]Settings updated successfully
+Function EditMyUser. Successfully. Edit your account.
+[23:42:22]Settings updated successfully
+Function EditMyUser. Successfully. Edit your account.
+[23:55:56]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[23:56:07]Settings updated successfully
+Function EditMyUser. Successfully. Edit your account.
+[23:57:54]Settings updated successfully
+Function EditMyUser. Successfully. Edit your account.
+[23:59:37]Operation is successful
+Function EditDocument. Successfully. .
+[00:01:23]Ошибка десериализации тела сообщения запроса для операции "UploadFile". Ошибка десериализации объекта типа Server.Model.DocInfo. Превышена квота максимальной длины массива (16384) при чтении данных XML. Эту квоту можно увеличить, изменив свойство MaxArrayLength объекта XmlDictionaryReaderQuotas, используемого при создании устройства чтения XML. Строка 1, позиция 108900.
+Function HandleReturnMessage. Error. System.Runtime.Remoting.Proxies.RealProxy.
+[00:09:08]Invalid login or password
+Function . Error. .
+[00:09:34]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[00:10:56]Удаленный хост принудительно разорвал существующее подключение
+Function Receive. Error. System.Net.Sockets.Socket.
+[00:13:22]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[00:14:07]Transmitted
+Function UploadFile. Successfully. Upload the document to the service.
+[00:14:31]Document with the given title already exists
+Function UploadFile. Error. Upload the document to the service.
+[00:14:45]Transmitted
+Function UploadFile. Successfully. Upload the document to the service.
+[00:17:16]String or binary data would be truncated.
+The statement has been terminated.
+Function UploadFile. Error. Upload the document to the service.
+[00:17:54]Не удается добавить объект, который содержит уже использующийся ключ.
+Function UploadFile. Error. Upload the document to the service.
+[00:18:33]Не удается добавить объект, который содержит уже использующийся ключ.
+Function UploadFile. Error. Upload the document to the service.
+[00:19:54]Время ожидания операции истекло
+Function GetResponse. Error. System.Net.HttpWebRequest.
+[00:20:49]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[00:21:51]The role of the user successfully changed
+Function ChangeUserRole. Successfully. Change the user's role.
+[00:39:46]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[00:53:13]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[00:56:17]Отказано в доступе.
+Function HandleReturnMessage. Error. System.Runtime.Remoting.Proxies.RealProxy.
+[00:56:56]Отказано в доступе.
+Function HandleReturnMessage. Error. System.Runtime.Remoting.Proxies.RealProxy.
+[00:57:48]Отказано в доступе.
+Function HandleReturnMessage. Error. System.Runtime.Remoting.Proxies.RealProxy.
+[01:00:07]Отказано в доступе.
+Function HandleReturnMessage. Error. System.Runtime.Remoting.Proxies.RealProxy.
+[01:01:20]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[01:03:54]Hi, Yauheni Yushkevich
+Function Login. Successfully. .
+[15:04:16]Ссылка на объект не указывает на экземпляр объекта.
+
+[15:05:30]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[15:05:49]Your settings updated successfully.
+
+[15:06:03]The role of the user ilya.fomin.2017@list.ru successfully changed.
+
+[15:11:12]Время ожидания операции истекло
+
+[15:13:26]You are logged. Hi, Jeka Yushkevich. Your role is administrator
+
+[15:19:50]You are logged. Hi, Jeka Yushkevich. Your role is administrator
+
+[15:20:00]You are logged. Hi, Jeka Yushkevich. Your role is administrator
+
+[15:20:28]Превышена квота максимальной длины массива (16384) при чтении данных XML. Эту квоту можно увеличить, изменив свойство MaxArrayLength объекта XmlDictionaryReaderQuotas, используемого при создании устройства чтения XML. Строка 1, позиция 2084941.
+
+[15:21:45]You are logged. Hi, Jeka Yushkevich. Your role is administrator
+
+[15:22:57]Your settings updated successfully.
+
+[15:29:38]DocumentMCP2515 is successful edit.
+
+[15:58:07]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:00:01]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:09:27]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:11:03]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:04:39]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:05:23]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:10:01]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:13:59]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:14:28]Documentdsds is successful edit. The document dsds contains a empty field. Complete field: Title, Language, Publisher.
+
+[17:19:33]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:19:56]Documentdsds is successful edit. The document dsds contains a empty field. Complete field: Title, Language, Publisher.
+
+[17:21:07]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:21:24]Documentdsds is successful edit.
+
+[17:22:38]Documentdsds is successful edit.
+
+[17:23:01]Documentdsds is successful edit.
+
+[17:23:52]You are logged. Hi, Vasya Pupkin. Your role is subscriber
+
+[17:28:25]User Vasya Pupkin successfully registered.
+
+[17:28:47]You are logged. Hi, Vasya Pupkin. Your role is subscriber
+
+[17:28:51]User pupkin.vasya2017@mail.ru successfully deleted
+
+[17:29:15]User Vasya Pupkin successfully registered.
+
+[17:29:24]You are logged. Hi, Vasya Pupkin. Your role is subscriber
+
+[08:16:51]В контексте авторизации особый субъект не указан.
+
+[08:21:04]В контексте авторизации особый субъект не указан.
+
+[08:24:34]В контексте авторизации особый субъект не указан.
+
+[08:40:14]В контексте авторизации особый субъект не указан.
+
+[08:40:33]В контексте авторизации особый субъект не указан.
+
+[08:46:27]В контексте авторизации особый субъект не указан.
+
+[08:50:57]В контексте авторизации особый субъект не указан.
+
+[08:57:01]Ошибка при проверке безопасности сообщения.
+
+[08:58:32]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[08:59:27]Превышена квота максимальной длины массива (16384) при чтении данных XML. Эту квоту можно увеличить, изменив свойство MaxArrayLength объекта XmlDictionaryReaderQuotas, используемого при создании устройства чтения XML. Строка 1, позиция 109045.
+
+[09:02:43]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[09:03:30]Document11 is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[09:05:20]The role of the user katerina.ushakova.96@mail.ru successfully changed.
+
+[17:07:21]Invalid login or password
+
+[17:07:33]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:11:52]Document11 is successful edit. Не удается добавить объект, который содержит уже использующийся ключ.
+
+[17:12:25]Document11 is successful edit. Не удается добавить объект, который содержит уже использующийся ключ.
+
+[17:13:15]Document11 is successful edit. Не удается добавить объект, который содержит уже использующийся ключ.
+
+[17:17:16]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:23:55]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:24:58]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:25:37]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:32:12]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:32:35]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:33:28]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:33:44]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:36:06]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:36:38]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:37:45]Documentfsdf is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:40:03]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:40:49]Documentqqqqqq is successful edit.
+
+[17:42:32]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:43:00]Documentqqqqqq can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[17:46:32]Invalid login or password
+
+[17:46:39]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:46:55]The role of the user ilya.fomin.2017@list.ru successfully changed.
+
+[18:13:37]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[18:13:48]Превышена квота максимальной длины массива (16384) при чтении данных XML. Эту квоту можно увеличить, изменив свойство MaxArrayLength объекта XmlDictionaryReaderQuotas, используемого при создании устройства чтения XML. Строка 1, позиция 109045.
+
+[18:15:07]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[18:15:38]Documentqqqqqq can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[15:40:42]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[15:41:34]Documentsd can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[15:42:36]Documentsd can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[15:48:13]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:12:40]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:13:12]Document dsds can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:15:11]Document dsds can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:15:31]Document dsds can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:17:34]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:18:26]Documentdsds is successful edit.
+
+[16:19:27]Documentdsds is successful edit.
+
+[16:19:47]Document sd can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:19:53]Document sd can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:20:38]Document sd can not edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:21:05]Операция является недопустимой из-за текущего состояния объекта.
+
+[16:26:20]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:27:49]Операция является недопустимой из-за текущего состояния объекта.
+
+[16:36:21]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:36:55]Documentdsds is successful edit. Операция является недопустимой из-за текущего состояния объекта.
+
+[16:43:25]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:43:55]Documentdsds is successful edit. Значение члена "ID_Publisher" объекта измененного типа "TPublisher".
+Не удается изменить член, определяющий удостоверение объекта.
+Попробуйте добавить новый объект с новым удостоверением, а затем удалить существующий объект.
+
+[16:51:34]The user role can not be changed. Значение члена "ID_Publisher" объекта измененного типа "TPublisher".
+Не удается изменить член, определяющий удостоверение объекта.
+Попробуйте добавить новый объект с новым удостоверением, а затем удалить существующий объект.
+
+[16:51:54]The user role can not be changed. Значение члена "ID_Publisher" объекта измененного типа "TPublisher".
+Не удается изменить член, определяющий удостоверение объекта.
+Попробуйте добавить новый объект с новым удостоверением, а затем удалить существующий объект.
+
+[16:52:13]The user role can not be changed. Значение члена "ID_Publisher" объекта измененного типа "TPublisher".
+Не удается изменить член, определяющий удостоверение объекта.
+Попробуйте добавить новый объект с новым удостоверением, а затем удалить существующий объект.
+
+[16:53:55]The user role can not be changed. Значение члена "ID_Publisher" объекта измененного типа "TPublisher".
+Не удается изменить член, определяющий удостоверение объекта.
+Попробуйте добавить новый объект с новым удостоверением, а затем удалить существующий объект.
+
+[16:54:19]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:55:36]Время ожидания операции истекло
+
+[16:56:00]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[16:56:33]The role of the user katerina.ushakova.96@mail.ru successfully changed.
+
+[17:11:04]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:11:31]Documentdsds is successful edit.
+
+[17:12:08]Documentdsds is successful edit.
+
+[17:17:31]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:17:43]Documents is successful edit.
+
+[17:18:16]Documentsd is successful edit.
+
+[17:18:17]Documents is successful edit.
+
+[17:18:18]Documentd is successful edit.
+
+[17:18:18]Documentsd is successful edit.
+
+[17:18:18]Documentds is successful edit.
+
+[17:18:18]Documentd is successful edit.
+
+[17:18:53]Document deleted successfully.
+
+[17:18:57]Document deleted successfully.
+
+[17:18:59]Document deleted successfully.
+
+[17:19:09]Document deleted successfully.
+
+[17:19:14]Document deleted successfully.
+
+[17:19:25]Document deleted successfully.
+
+[17:24:07]Document deleted successfully.
+
+[17:27:37]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[17:28:08]Document deleted successfully.
+
+[23:19:05]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[23:27:04]The document 1 is successfully uploaded.
+
+[23:27:05]The document 3 is successfully uploaded.
+
+[23:27:06]The document 156 is successfully uploaded.
+
+[23:27:06]The document 223 is successfully uploaded.
+
+[23:27:06]The document fffg is successfully uploaded.
+
+[23:27:06]The document jh is successfully uploaded.
+
+[23:27:07]The document ghj is successfully uploaded.
+
+[23:27:07]The document g is successfully uploaded.
+
+[23:27:08]The document ghj is successfully uploaded.
+
+[23:27:08]The document gjgh is successfully uploaded.
+
+[23:27:08]The document jgh is successfully uploaded.
+
+[23:27:09]The document kgklj is successfully uploaded.
+
+[23:27:09]The document kjg is successfully uploaded.
+
+[23:27:09]The document hgh is successfully uploaded.
+
+[23:27:10]The document ghjg is successfully uploaded.
+
+[23:27:10]The document hjjkk is successfully uploaded.
+
+[23:27:10]The document jhhj is successfully uploaded.
+
+[23:27:11]The document can not uploaded. String or binary data would be truncated.
+The statement has been terminated.
+
+[23:27:12]The document can not uploaded. Не удается добавить объект, который содержит уже использующийся ключ.
+
+[23:27:12]The document can not uploaded. Не удается добавить объект, который содержит уже использующийся ключ.
+
+[23:33:56]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[23:34:57]Document deleted successfully.
+
+[23:58:29]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[00:34:36]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[00:35:21]Document deleted successfully.
+
+[00:36:41]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[00:38:19]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[00:38:57]Document deleted successfully.
+
+[00:39:15]Document deleted successfully.
+
+[00:39:31]Document deleted successfully.
+
+[00:53:14]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[00:55:38]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[00:56:05]Document deleted successfully.
+
+[00:56:18]Document deleted successfully.
+
+[01:05:31]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[01:16:10]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[01:24:22]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[01:29:55]Document deleted successfully.
+
+[01:30:12]The document was not deleted. Document not found.
+
+[01:53:31]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[01:53:51]Document deleted successfully.
+
+[01:54:11]Document deleted successfully.
+
+[01:54:11]Document deleted successfully.
+
+[01:54:11]Document deleted successfully.
+
+[02:13:32]You are logged. Hi, Yauheni Yushkevich. Your role is administrator
+
+[02:13:42]Your settings updated successfully.
+

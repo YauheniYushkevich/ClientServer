@@ -1,0 +1,328 @@
+﻿<Window x:Class="Client.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mvm="clr-namespace:Client.ViewModels"
+        xmlns:conv="clr-namespace:Client.Converters"
+        Title="Client Service">
+    <Window.Resources>
+        <HorizontalAlignment x:Key="CustomAlignment">Right</HorizontalAlignment>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <conv:NotBoolToVisibilityConverter x:Key="NotBoolToVisibilityConverter"/>
+        <conv:BoolToNotBoolConverter x:Key="BoolToNotBoolConverter"/>
+        <conv:BoolToBrushConverter x:Key="BoolToBrushConverter"/>
+        <mvm:MainViewModel x:Key="mainViewModel"/>
+    </Window.Resources>
+    <DockPanel Name="dpMain" DataContext="{StaticResource mainViewModel}" LastChildFill="True" Margin="5" >
+        <DockPanel LastChildFill="False" DockPanel.Dock="Top" Margin="0,0,0,5">
+            <DockPanel LastChildFill="False" DockPanel.Dock="Right" Margin="0,0,0,5">
+                <Button Content="Delete My Account" DataContext="{Binding MyUser, UpdateSourceTrigger=PropertyChanged}"
+                        Command="{Binding Path=DeleteUserCommand, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding ElementName=btnLogOut, Path=Visibility}" 
+                        DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                <Button Content="Create Account" Visibility="{Binding IsLogin, Converter={StaticResource NotBoolToVisibilityConverter}}" 
+                        DockPanel.Dock="Right" Margin="5,0,0,0" Click="Button_Click" />
+                <Button Content="LogOut" Name="btnLogOut" Command="{Binding LogOutCommand, UpdateSourceTrigger=PropertyChanged}"
+                    Visibility="{Binding IsLogin, Converter={StaticResource BoolToVisibilityConverter}}" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                <Button Content="LogIn" Command="{Binding LogInCommand, UpdateSourceTrigger=PropertyChanged}" 
+                    Visibility="{Binding IsLogin, Converter={StaticResource NotBoolToVisibilityConverter}}" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+            </DockPanel>
+            <PasswordBox mvm:PasswordHelper.Attach="True" mvm:PasswordHelper.Password="{Binding Password, Mode=TwoWay}"
+                         IsEnabled="{Binding IsLogin, Converter={StaticResource BoolToNotBoolConverter}, UpdateSourceTrigger=PropertyChanged}"
+                         MinWidth="250" MaxLength="20" DockPanel.Dock="Right" TabIndex="2" />
+            <Label Content="Password" DockPanel.Dock="Right" Margin="10,0,0,0"/>
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+                     IsEnabled="{Binding IsLogin, Converter={StaticResource BoolToNotBoolConverter}, UpdateSourceTrigger=PropertyChanged}"
+                     MinWidth="250" DockPanel.Dock="Right" TabIndex="0"/>
+            <Label Content="Email" DockPanel.Dock="Right"/>
+        </DockPanel>
+        <Border DataContext="{Binding Logs}" BorderBrush="{Binding Result, Converter={StaticResource BoolToBrushConverter}}" BorderThickness="2" DockPanel.Dock="Bottom" Margin="0,5,0,0" Background="Lavender">
+            <TextBlock Text="{Binding Text}" ToolTip="{Binding Description}" TextWrapping="Wrap"/>
+        </Border>
+        <TabControl IsEnabled="{Binding IsLogin, UpdateSourceTrigger=PropertyChanged}" TabIndex="5">
+            <TabItem Header="Home page" DataContext="{Binding MyUser, UpdateSourceTrigger=PropertyChanged}" 
+                     IsSelected="{Binding Mode=OneWayToSource, Path=IsUpdated}">
+                <DockPanel LastChildFill="True" Margin="5">
+                    <StackPanel Margin="0,0,5,0">
+                        <DockPanel LastChildFill="True">
+                            <Label Width="100" Content="Name" HorizontalContentAlignment="{Binding Source={StaticResource CustomAlignment}, Mode=OneWay}" />
+                            <TextBox Text="{Binding EditName, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
+                                     MinWidth="150" Margin="0,5,0,0" TabIndex="0">
+                                <TextBox.ToolTip>
+                                    Enter your name. This field can not be empty
+                                </TextBox.ToolTip>
+                            </TextBox>
+                        </DockPanel>
+                        <DockPanel LastChildFill="True">
+                            <Label Width="100" Content="Surname" HorizontalContentAlignment="{Binding Source={StaticResource CustomAlignment}, Mode=OneWay}" />
+                            <TextBox Text="{Binding EditSurname, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" 
+                                     MinWidth="150" Margin="0,5,0,0" TabIndex="1">
+                                <TextBox.ToolTip>
+                                    Enter your surname. This field can not be empty
+                                </TextBox.ToolTip>
+                            </TextBox>
+                        </DockPanel>
+                        <DockPanel LastChildFill="True">
+                            <Label Width="100" Content="Role" HorizontalContentAlignment="{Binding Source={StaticResource CustomAlignment}, Mode=OneWay}" />
+                            <TextBox Text="{Binding Role, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" MinWidth="150" Margin="0,5,0,0"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="True">
+                            <Label Width="100" Content="New Password" HorizontalContentAlignment="{Binding Source={StaticResource CustomAlignment}, Mode=OneWay}" />
+                            <PasswordBox mvm:PasswordHelper.Attach="True" mvm:PasswordHelper.Password="{Binding EditPassword, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"
+                                         MinWidth="150" Margin="0,5,0,0" TabIndex="2">
+                                <PasswordBox.ToolTip>
+                                    Enter your new password. The password must be longer than 8 characters
+                                </PasswordBox.ToolTip>
+                            </PasswordBox>
+                        </DockPanel>
+                        <DockPanel LastChildFill="True">
+                            <Label Width="100" Content="Confirm Password" HorizontalContentAlignment="{Binding Source={StaticResource CustomAlignment}, Mode=OneWay}" />
+                            <PasswordBox mvm:PasswordHelper.Attach="True" mvm:PasswordHelper.Password="{Binding ConfirmEditPassword, Mode=TwoWay,ValidatesOnDataErrors=True, ValidatesOnExceptions=False}"
+                                         MinWidth="150" Margin="0,5,0,0" TabIndex="3">
+                                <PasswordBox.ToolTip>
+                                    Confirm your password
+                                </PasswordBox.ToolTip>
+                            </PasswordBox>
+                        </DockPanel>
+                        <DockPanel Margin="0,5,0,0" LastChildFill="False" >
+                            <Button Content="Save" Command="{Binding SaveMyUserCommand}" Width="100" Margin="0,0,5,0" TabIndex="4" />
+                            <Button Content="Default" Command="{Binding DefaultMyUserCommand}" Width="100" />
+                        </DockPanel>
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding UserHistory}" AutoGenerateColumns="False" IsReadOnly="True" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Title}" Header="Document" IsReadOnly="True" MinWidth="250"/>
+                            <DataGridTextColumn Binding="{Binding Date}" Header="Date" CanUserResize="False" IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Documents" DataContext="{Binding DocumentCollection}"
+                     IsSelected="{Binding Mode=OneWayToSource, Path=IsUpdated}">
+                <DockPanel LastChildFill="True" Margin="5">
+                    <StackPanel DockPanel.Dock="Top" Margin="0,0,0,5">
+                        <DockPanel LastChildFill="True" Margin="0,0,0,5">
+                            <Label Content="Title"/>
+                            <TextBox Text="{Binding FindTags, UpdateSourceTrigger=PropertyChanged}" MinWidth="150" DockPanel.Dock="Right" TabIndex="2"/>
+                            <Label Content="Tags" DockPanel.Dock="Right"/>
+                            <ComboBox ItemsSource="{Binding Source={StaticResource ResourceKey=mainViewModel}, Path=Publishers,UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValue="{Binding FindPublisher, UpdateSourceTrigger=PropertyChanged}" 
+                                      IsDropDownOpen="{Binding Source={StaticResource ResourceKey=mainViewModel}, Path=IsUpdated,Mode=OneWayToSource}"
+                                      Width="100" DockPanel.Dock="Right" Margin="0,0,5,0" TabIndex="1"/>
+                            <!--<ComboBox ItemsSource="{Binding Source={}, Path=Publishers,UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValue="{Binding FindPublisher, UpdateSourceTrigger=PropertyChanged}" Width="100" DockPanel.Dock="Right" Margin="0,0,5,0" TabIndex="1"/>-->
+                            <Label Content="Publisher" DockPanel.Dock="Right"/>
+                            <TextBox Text="{Binding FindTitle, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" TabIndex="0"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Button Command="{Binding FindDocCommand, UpdateSourceTrigger=PropertyChanged}" Width="65" DockPanel.Dock="Right" TabIndex="3" Margin="5,0,0,0">
+                                <DockPanel>
+                                    <Image Height="16" Source="/Resources/Search.png"/>
+                                    <TextBlock Text="Search"/>
+                                </DockPanel>
+                            </Button>
+                            <Button Command="{Binding ClearCommand, UpdateSourceTrigger=PropertyChanged}" ToolTip="clear all field add result table" Width="65"  DockPanel.Dock="Right">
+                                <DockPanel>
+                                    <Image Height="16" Source="/Resources/edit-clear.png"/>
+                                    <TextBlock Text="Clear"/>
+                                </DockPanel>
+                            </Button>
+                        </DockPanel>
+                    </StackPanel>
+                    <Image DataContext="{Binding ElementName=dgDocuments, Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
+                           Source="{Binding ScreenImage}" MaxHeight="300" MaxWidth="150" DockPanel.Dock="Right" Margin="5,0,0,0" />
+                    <DockPanel DockPanel.Dock="Bottom" LastChildFill="False" Margin="0,5,0,0">
+                        <Button Content="Delete All" Command="{Binding DeleteAllDocCommand, UpdateSourceTrigger=PropertyChanged}"
+                                Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                        <Button Content="Save All" Command="{Binding SaveAllDocCommand, UpdateSourceTrigger=PropertyChanged}" 
+                                Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}" Width="75"  DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                        <Button Content="Download All" Command="{Binding DownloadAllDocCommand, UpdateSourceTrigger=PropertyChanged}" 
+                                Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}" Width="80" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                        <Button Content="Upload All" Command="{Binding UploadAllDocCommand, UpdateSourceTrigger=PropertyChanged}"
+                                Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                        <Button ToolTip="Add documents" Command="{Binding AddDocCommand, UpdateSourceTrigger=PropertyChanged}" 
+                                Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}" Width="75" DockPanel.Dock="Right" Margin="5,0,0,0">
+                            <DockPanel>
+                                <Image Height="16" Source="/Resources/Add file.png"/>
+                                <TextBlock Text="Add"/>
+                            </DockPanel>
+                        </Button>
+                    </DockPanel>
+                    <DataGrid Name="dgDocuments" ItemsSource="{Binding Documents, UpdateSourceTrigger=PropertyChanged}" 
+                              IsReadOnly="{Binding IsReadOnly, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Height="16" Source="/Resources/document.png"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn  Header="Title" Binding="{Binding Title, UpdateSourceTrigger=PropertyChanged}" MinWidth="150"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description, UpdateSourceTrigger=PropertyChanged}" MinWidth="150"/>
+                            <DataGridTemplateColumn Header="Language"  Width="100" CanUserResize="False">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding Source={StaticResource ResourceKey=mainViewModel}, Path=Languages,UpdateSourceTrigger=PropertyChanged}"
+                                                  SelectedValue="{Binding Path=Language, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="{Binding IsReadOnly, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Publisher"  Width="100" CanUserResize="False">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding Source={StaticResource ResourceKey=mainViewModel}, Path=Publishers,UpdateSourceTrigger=PropertyChanged}"
+                                                  IsDropDownOpen="{Binding Source={StaticResource ResourceKey=mainViewModel}, Path=IsUpdated,Mode=OneWayToSource}"
+                                                  
+                                                  Text="{Binding Publisher,UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="{Binding IsReadOnly, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"/>
+                                        <!--SelectedValue="{Binding Publisher,UpdateSourceTrigger=PropertyChanged}"-->
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Tags" MinWidth="100" Binding="{Binding Tags, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTemplateColumn Header="Path to screen" MinWidth="120" Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel  LastChildFill="True">
+                                            <Button Command="{Binding PathToScreenCommand,UpdateSourceTrigger=PropertyChanged}" Content="..." DockPanel.Dock="Right" />
+                                            <TextBox Text="{Binding PathToScreen, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn  Header="Path to doc" MinWidth="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel  LastChildFill="True">
+                                            <Button Command="{Binding PathToDocCommand, UpdateSourceTrigger=PropertyChanged}" Content="..." DockPanel.Dock="Right" 
+                                                    Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}"/>
+                                            <TextBox Text="{Binding PathToDoc,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Operation" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel LastChildFill="False" Margin="1">
+                                            <Button Command="{Binding DownloadDocCommand, UpdateSourceTrigger=PropertyChanged}" ToolTip="Download file" Margin="1">
+                                                <Image Height="16" Source="/Resources/Download file.png" />
+                                            </Button>
+                                            <Button Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}"
+                                                    Command="{Binding UploadDocCommand, UpdateSourceTrigger=PropertyChanged}" ToolTip="Upload file" Margin="1">
+                                                <Image Height="16" Source="/Resources/Upload file.png"/>
+                                            </Button>
+                                            <Button Command="{Binding ViewDocCommand, UpdateSourceTrigger=PropertyChanged}" ToolTip="View file" Margin="1">
+                                                <Image Height="16" Source="/Resources/View.png"/>
+                                            </Button>
+                                            <Button Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}"
+                                                    Command="{Binding SaveDocCommand, UpdateSourceTrigger=PropertyChanged}" ToolTip="Save document info" Margin="1">
+                                                <Image Height="16" Source="/Resources/Save.png"/>
+                                            </Button>
+                                            <Button Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}}"
+                                                    Command="{Binding DeleteDocCommand, UpdateSourceTrigger=PropertyChanged}" ToolTip="Delete file" Margin="1">
+                                                <Image Height="16" Source="/Resources/Delete file.png"/>
+                                            </Button>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Users" DataContext="{Binding UserCollection}" IsSelected="{Binding IsUpdated}">
+                <DockPanel LastChildFill="True" Margin="5">
+                    <StackPanel DockPanel.Dock="Top" Margin="0,0,0,5" >
+                        <DockPanel LastChildFill="True" Margin="0,0,0,5">
+                            <Label Content="Email"/>
+                            <ComboBox ItemsSource="{Binding Roles, Source={StaticResource mainViewModel}, UpdateSourceTrigger=PropertyChanged}" 
+                                      SelectedValue="{Binding FindRole, UpdateSourceTrigger=PropertyChanged}"
+                                      Width="100" DockPanel.Dock="Right" TabIndex="3"/>
+                            <Label Content="Role" DockPanel.Dock="Right"/>
+                            <TextBox Text="{Binding FindSurname, UpdateSourceTrigger=PropertyChanged}" Width="100" DockPanel.Dock="Right" Margin="0,0,10,0" TabIndex="2"/>
+                            <Label Content="Surname" DockPanel.Dock="Right"/>
+                            <TextBox Text="{Binding FindName, UpdateSourceTrigger=PropertyChanged}" Width="100" DockPanel.Dock="Right" Margin="0,0,10,0" TabIndex="1"/>
+                            <Label Content="Name" DockPanel.Dock="Right"/>
+                            <TextBox Text="{Binding FindEmail, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,10,0" TabIndex="0"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Button Command="{Binding FindUserCommand, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Margin="5,0,0,0">
+                                <DockPanel>
+                                    <Image Height="16" Source="/Resources/Search.png"/>
+                                    <TextBlock Text="Search"/>
+                                </DockPanel>
+                            </Button>
+                            <Button Command="{Binding ClearUserCommand,UpdateSourceTrigger=PropertyChanged}" Content="Clear" ToolTip="Clear find" DockPanel.Dock="Right" />
+                        </DockPanel>
+                    </StackPanel>
+                    <DockPanel Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right">
+                    <DataGrid 
+                              DataContext="{Binding ElementName=dgUsers, Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
+                              ItemsSource="{Binding UserHistory, UpdateSourceTrigger=PropertyChanged}"
+                              AutoGenerateColumns="False"  IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Height="16" Source="/Resources/document.png"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Document" Binding="{Binding Title, UpdateSourceTrigger=PropertyChanged}" MinWidth="250"/>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Date, UpdateSourceTrigger=PropertyChanged}" CanUserResize="False" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    </DockPanel>
+                    <DataGrid Name="dgUsers" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" 
+                              IsReadOnly="{Binding IsReadOnly, UpdateSourceTrigger=PropertyChanged}" 
+                              CanUserDeleteRows="False" AutoGenerateColumns="False" Margin="0,0,5,0" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Height="16" Source="/Resources/user_information.png"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" IsReadOnly="True" MinWidth="150"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" MinWidth="100"/>
+                            <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" IsReadOnly="True" MinWidth="100"/>
+                            <DataGridTemplateColumn Header="Role" MinWidth="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding Source={StaticResource ResourceKey=mainViewModel}, Path=Roles, ValidatesOnDataErrors=True, 
+                                            ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
+                                                  SelectedValue="{Binding EditRole, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="{Binding IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsDropDownOpen="False"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <Button Command="{Binding DeleteUserCommand, UpdateSourceTrigger=PropertyChanged}"
+                                                    Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                                                    ToolTip="delete user" Margin="5,0,0,0">
+                                                <Image Height="16" Source="/Resources/user_delete.png"/>
+                                            </Button>
+                                            <Button Command="{Binding SaveUserCommand, UpdateSourceTrigger=PropertyChanged}"
+                                                   Visibility="{Binding IsReadOnly, Converter={StaticResource NotBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                                                    ToolTip="Save user">
+                                                <Image Height="16" Source="/Resources/user_edit.png"/>
+                                            </Button>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_Service" Class="DB_ServiceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=EUGENIUSZPC;Initial Catalog=DB_Service;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ServiceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TDocuments" Member="TDocuments">
+    <Type Name="TDocument">
+      <Column Name="ID_Document" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_Language" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Publisher" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Screen" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tags" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileLength" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="TDocument_THistory" Member="THistories" ThisKey="ID_Document" OtherKey="ID_Document" Type="THistory" />
+      <Association Name="TLanguage_TDocument" Member="TLanguage" ThisKey="ID_Language" OtherKey="ID_Language" Type="TLanguage" IsForeignKey="true" />
+      <Association Name="TPublisher_TDocument" Member="TPublisher" ThisKey="ID_Publisher" OtherKey="ID_Publisher" Type="TPublisher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THistory" Member="THistories">
+    <Type Name="THistory">
+      <Column Name="ID_row" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Document" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="TDocument_THistory" Member="TDocument" ThisKey="ID_Document" OtherKey="ID_Document" Type="TDocument" IsForeignKey="true" />
+      <Association Name="TUser_THistory" Member="TUser" ThisKey="Email" OtherKey="Email" Type="TUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TLanguages" Member="TLanguages">
+    <Type Name="TLanguage">
+      <Column Name="ID_Language" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Language" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="TLanguage_TDocument" Member="TDocuments" ThisKey="ID_Language" OtherKey="ID_Language" Type="TDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TPublishers" Member="TPublishers">
+    <Type Name="TPublisher">
+      <Column Name="ID_Publisher" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Publisher" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="TPublisher_TDocument" Member="TDocuments" ThisKey="ID_Publisher" OtherKey="ID_Publisher" Type="TDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRoles" Member="TRoles">
+    <Type Name="TRole">
+      <Column Name="ID_Role" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="TRole_TUser" Member="TUsers" ThisKey="ID_Role" OtherKey="ID_Role" Type="TUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TUsers" Member="TUsers">
+    <Type Name="TUser">
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Role" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="TUser_THistory" Member="THistories" ThisKey="Email" OtherKey="Email" Type="THistory" />
+      <Association Name="TRole_TUser" Member="TRole" ThisKey="ID_Role" OtherKey="ID_Role" Type="TRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
